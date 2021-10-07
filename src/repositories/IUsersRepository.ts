@@ -13,7 +13,7 @@ interface IUsersRepository{
 
     delete(id?: string): void
 
-    edit(email: string, senha: string, id: string): User
+    edit(id: string, email: string, senha: string): void
 }
 
 export{ IUsersRepository }

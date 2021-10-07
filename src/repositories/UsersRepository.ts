@@ -19,7 +19,6 @@ class UsersRepository implements IUsersRepository {
 
         const user = this.users.find((user) => user.email === email);
 
-       
         return user;
 
     }
@@ -57,15 +56,32 @@ class UsersRepository implements IUsersRepository {
     }
 
     findById(id: string): User {
-        throw new Error("Method not implemented.");
+
+        const user = this.users.find((user) => user.id === id);
+
+        return user;
     }
 
     delete(id?: string): void {
-        throw new Error("Method not implemented.");
+        
+        const index = this.users.findIndex((user) => user.id === id);
+
+        this.users.splice(index,1);
+        
     }
 
-    edit(email: string, senha: string, id: string): User {
-        throw new Error("Method not implemented.");
+    edit(id: string, email: string, senha: string): void {
+
+        const user = new User();
+                            
+        Object.assign(user, {
+            id,
+            email,
+            senha
+        });
+
+        this.users.push(user);
+
     }
 
 

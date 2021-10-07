@@ -2,19 +2,20 @@ import { User } from "../../model/Users";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 
-class ListAllUserUseCase {
+class ListUserUseCase {
 
     constructor(private usersRepository: IUsersRepository){}
 
-    async execute(): Promise<User[]> {
+    async execute(id: string): Promise<User[]> {
 
-        const users  = await this.usersRepository.list();
+        const user  = await this.usersRepository.findById(id);
               
-        return users;
+        return user;
     
     };
 
 
 };
 
-export { ListAllUserUseCase }
+
+export { ListUserUseCase }
