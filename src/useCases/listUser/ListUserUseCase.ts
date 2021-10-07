@@ -6,9 +6,9 @@ class ListUserUseCase {
 
     constructor(private usersRepository: IUsersRepository){}
 
-    async execute(id: string): Promise<User[]> {
+    async execute(id: string): Promise<User> {
 
-        const user  = await this.usersRepository.findById(id);
+        const user  = this.usersRepository.findById(id);
               
         return user;
     

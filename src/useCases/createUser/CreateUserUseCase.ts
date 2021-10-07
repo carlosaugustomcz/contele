@@ -9,8 +9,6 @@ class CreateUserUseCase {
 
     execute(email: string, senha: string): void {
 
-        console.log(email, senha);
-
         const userAlreadyExits = this.usersRepository.findByEmail(email);
 
          if(userAlreadyExits) {

@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createUserController } from "../useCases/createUser";
 import { listAllUserController } from "../useCases/listAllUser";
 import { listUserController } from "../useCases/listUser";
+import { deleteUserController } from "../useCases/deleteUser";
 
 
 
@@ -31,6 +32,16 @@ usersRoutes.get("/:id", (request, response) => {
 usersRoutes.put("/:id", (request, response) => {
 
   return 
+})
+
+usersRoutes.delete("/:id", (request, response) => {
+
+  return deleteUserController.handle(request, response);
+})
+
+usersRoutes.delete("/", (request, response) => {
+
+  return deleteUserController.handle(request, response);
 })
 
 export { usersRoutes };

@@ -64,10 +64,14 @@ class UsersRepository implements IUsersRepository {
 
     delete(id?: string): void {
         
-        const index = this.users.findIndex((user) => user.id === id);
+        if (id) {
+            const index = this.users.findIndex((user) => user.id === id);
 
-        this.users.splice(index,1);
-        
+            this.users.splice(index,1);
+        }
+        else {
+            this.users.splice(0); 
+        }
     }
 
     edit(id: string, email: string, senha: string): void {
