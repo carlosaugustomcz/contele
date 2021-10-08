@@ -3,9 +3,7 @@ import { createUserController } from "../useCases/createUser";
 import { listAllUserController } from "../useCases/listAllUser";
 import { listUserController } from "../useCases/listUser";
 import { deleteUserController } from "../useCases/deleteUser";
-
-
-
+import { editUserController } from "../useCases/editUser";
 
 
 const usersRoutes = Router();
@@ -31,7 +29,7 @@ usersRoutes.get("/:id", (request, response) => {
 
 usersRoutes.put("/:id", (request, response) => {
 
-  return 
+  return editUserController.handle(request, response);
 })
 
 usersRoutes.delete("/:id", (request, response) => {

@@ -9,14 +9,17 @@ class EditUserUseCase {
 
     execute(id: string, email: string, senha: string): void {
 
-        const userAlreadyExits = this.usersRepository.findByEmail(email);
 
-         if(userAlreadyExits) {
-             throw new AppError("User already exists!");
+        const userAlreadyExits = this.usersRepository.findById(id);
+
+         if(!userAlreadyExits) {
+             throw new AppError("User not exists!");
             
         }
 
-        this.usersRepository.create(email, senha);
+        this.usersRepository.delete(id);
+
+        this.usersRepository.edit(id, email, senha);
 
     }
 
