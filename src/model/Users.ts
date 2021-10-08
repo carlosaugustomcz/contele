@@ -1,9 +1,7 @@
-
-
 class User {
-    id: string;
-    email: string;
-    senha: string;
+  id: string;
+  email: string;
+  senha: string;
 }
 
-export { User }
+export { User };

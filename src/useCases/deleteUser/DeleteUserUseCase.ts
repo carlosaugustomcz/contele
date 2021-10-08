@@ -1,30 +1,22 @@
 import { AppError } from "../../errors/AppError";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
-
-
 class DeleteUserUseCase {
+  constructor(private usersRepository: IUsersRepository) {}
 
-    constructor(private usersRepository: IUsersRepository){}
+  execute(id?: string): void {
+    if (id) {
+      const userAlreadyExits = this.usersRepository.findById(id);
 
-    execute(id?: string): void {
+      if (!userAlreadyExits) {
+        throw new AppError("User not exists!");
+      }
 
-        if (id){
-
-            const userAlreadyExits = this.usersRepository.findById(id);
-
-             if(!userAlreadyExits) {
-                 throw new AppError("User not exists!");
-            
-            }
-
-            this.usersRepository.delete(id);
-        } 
-        else {
-            this.usersRepository.delete();
-        }    
+      this.usersRepository.delete(id);
+    } else {
+      this.usersRepository.delete();
     }
-
+  }
 }
 
-export { DeleteUserUseCase }
+export { DeleteUserUseCase };

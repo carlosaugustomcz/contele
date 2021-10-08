@@ -1,19 +1,17 @@
 import { User } from "../model/Users";
 
+interface IUsersRepository {
+  create(email: string, senha: string): void;
 
-interface IUsersRepository{
+  list(): User[];
 
-    create(email: string, senha: string): void;
+  findById(id: string): User;
 
-    list(): User[]
+  findByEmail(email: string): User;
 
-    findById(id: string): User
+  delete(id?: string): void;
 
-    findByEmail(email: string): User
-
-    delete(id?: string): void
-
-    edit(id: string, email: string, senha: string): void
+  edit(id: string, email: string, senha: string): void;
 }
 
-export{ IUsersRepository }
+export { IUsersRepository };

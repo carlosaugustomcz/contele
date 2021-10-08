@@ -1,25 +1,18 @@
 import { AppError } from "../../errors/AppError";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
-
-
 class CreateUserUseCase {
+  constructor(private usersRepository: IUsersRepository) {}
 
-    constructor(private usersRepository: IUsersRepository){}
+  execute(email: string, senha: string): void {
+    const userAlreadyExits = this.usersRepository.findByEmail(email);
 
-    execute(email: string, senha: string): void {
-
-        const userAlreadyExits = this.usersRepository.findByEmail(email);
-
-         if(userAlreadyExits) {
-             throw new AppError("User already exists!");
-            
-        }
-
-        this.usersRepository.create(email, senha);
-
+    if (userAlreadyExits) {
+      throw new AppError("User already exists!");
     }
 
+    this.usersRepository.create(email, senha);
+  }
 }
 
-export { CreateUserUseCase }
+export { CreateUserUseCase };
