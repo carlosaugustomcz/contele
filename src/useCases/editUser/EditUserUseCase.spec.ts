@@ -1,16 +1,20 @@
 import { UsersRepositoryInMemory } from "../../repositories/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
+import { EditUserUseCase } from "./EditUserUseCase";
 
 let createUserUseCase: CreateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
 
-describe("list user", () => {
+let editUserUseCase: EditUserUseCase;
+
+describe("edit user", () => {
   beforeEach(() => {
     usersRepositoryInMemory = new UsersRepositoryInMemory();
     createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
+    editUserUseCase = new EditUserUseCase(usersRepositoryInMemory);
   });
 
-  it("should be able to list a user", async () => {
+  it("should be able to edit a user", async () => {
     const user = {
       email: "teste@teste.com.br",
       senha: "123",
@@ -18,21 +22,10 @@ describe("list user", () => {
 
     createUserUseCase.execute(user.email, user.senha);
 
-    const userCreate = usersRepositoryInMemory.findById("123");
+    editUserUseCase.execute("123", user.email, user.senha);
 
-    expect(userCreate.id).toBe("123");
-  });
+    const userEdit = usersRepositoryInMemory.findById("123");
 
-  it("should be able to list all user", async () => {
-    const user = {
-      email: "teste@teste.com.br",
-      senha: "123",
-    };
-
-    createUserUseCase.execute(user.email, user.senha);
-
-    const userCreate = usersRepositoryInMemory.list();
-
-    expect(userCreate).toEqual(usersRepositoryInMemory.users);
+    expect(userEdit.id).toBe("123");
   });
 });

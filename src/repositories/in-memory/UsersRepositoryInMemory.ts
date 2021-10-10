@@ -20,7 +20,9 @@ class UsersRepositoryInMemory implements IUsersRepository {
   }
 
   list(): User[] {
-    throw new Error("Method not implemented.");
+    const all = this.users;
+
+    return all;
   }
 
   findById(id: string): User {
@@ -46,7 +48,15 @@ class UsersRepositoryInMemory implements IUsersRepository {
   }
 
   edit(id: string, email: string, senha: string): void {
-    throw new Error("Method not implemented.");
+    const user = new User();
+
+    Object.assign(user, {
+      id,
+      email,
+      senha,
+    });
+
+    this.users.push(user);
   }
 }
 
