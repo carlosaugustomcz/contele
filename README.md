@@ -7,10 +7,10 @@ Executar os comandos abaixo no prompt da pasta do projeto:
 - Instalar as denpendência necessária para executar
     * npm install --global yarn 
 
-Executar os teste
+- Executar os teste
     * yarn test
 
-Executar o projeto em modo desenvolvimento
+- Executar o projeto em modo desenvolvimento
     * yarn dev
 
 # Documentação dos Endpoints
