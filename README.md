@@ -62,6 +62,6 @@ http://localhost:3333/users/:id
 
 Verbo: DEL
 
-Deletar todos os Uusários
+Deletar todos os Usários
 
 http://localhost:3333/users
