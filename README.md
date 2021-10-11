@@ -4,7 +4,7 @@
 Clonar o projeto do repositório (GitHub),
 
 Executar os comandos abaixo no prompt da pasta do projeto:
-- Instalar as dependência necessária para executar o projeto.
+- Instalar as dependências necessárias para executar o projeto.
     * npm install --global yarn 
 
 - Executar comando 
