@@ -7,6 +7,9 @@ Executar os comandos abaixo no prompt da pasta do projeto:
 - Instalar as denpendência necessária para executar
     * npm install --global yarn 
 
+- Executar comando 
+    * yarn --init 
+
 - Executar os teste
     * yarn test
 
