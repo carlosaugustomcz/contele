@@ -10,7 +10,7 @@ Executar os comandos abaixo no prompt da pasta do projeto:
 - Executar comando 
     * yarn --init 
 
-- Executar os teste
+- Executar os testes
     * yarn test
 
 - Executar o projeto em modo desenvolvimento
